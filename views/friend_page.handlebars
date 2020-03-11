@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>You V.S Mark A.</title>
+
+	<link href="/css/friendcompare.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/dropdown.css">
+	<link href="/css/main.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['You', 'Mark A.'],
+          ['You',  1.85],
+          ['Mark A.',  8.66],
+        ]);
+
+      var options = {
+        legend: 'none',
+        pieSliceText: 'label',
+        title: 'Mark A. and You',
+        pieStartAngle: 100,
+      };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Courses', 'You', 'Mark A.', 'Lastmonth Total'],
+          ['COGS 120', 20, 30, 50],
+          ['CSE 120', 30, 40, 90],
+          ['ECON 120A', 30, 30, 70],
+          ['Total', 80, 100, 210]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Mark A. and You',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+</head>
+<body>
+		<div id="footer">
+	<div class="container">
+		<div class="jumbotron">
+<ul>
+  <li><a2>Mark A.</a2></li>
+  {{> navbar}}
+</ul>
+
+<div class="container">
+<h4>You V.S Mark A.</h4>
+<div id="myProgress" class="center12">
+  <div id="myBar"></div>
+</div>
+
+<br>
+<div class="center12">
+    <div id="myBar" class="center12" style="height:24px;width:0%">
+  </div>
+
+  <p id="myP">Mark A. has <span id="demo">0</span> focus score more than you</p>
+
+  <button class="btn124" onclick="move();this.disabled='true'">Click to see who is better</button>
+</div>
+
+<script>
+function move() {
+  var elem = document.getElementById("myBar");
+  var width = 0;
+  var id = setInterval(frame, 50);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+      document.getElementById("myP").className = "w3-text-green w3-animate-opacity";
+      document.getElementById("myP").innerHTML = "Mark A. Wins! He has 80 focus score more than you";
+    } else {
+      width++;
+      elem.style.width = width + '%';
+      var num = width * 8 / 10;
+      num = num.toFixed(0)
+      document.getElementById("demo").innerHTML = num;
+    }
+  }
+}
+</script>
+
+<div class="center12" id="piechart" style="width: 350; height: 300px;"></div>
+<div class="center12" id="barchart_material" style="width: 350px; height: 300px;"></div>
+<a class="button button2" href="javascript: history.go(-1)">Back</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="/css/main.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/dropdown.css">
+  	<link href="/css/buttonB.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stopwatch</title>
+
+
+</head>
+<body>
+<ul>
+  <li><a2>Add a Task</a2></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">More</a>
+    <div class="dropdown-content">
+      <a href="/">My Focus</a>
+      <a href="/friends">Friends</a>
+      <a href="/fake">Login</a>
+    </div>
+  </li>
+</ul>
+
+<a href="/time"><button class="button22">← BACK</button></a>
+
+
+
+	<div class="jumbotron">
+
+
+	<div class="task_timeadd">
+   		<div class="task_time">
+ 	<form id="addFriendForm" role="form" method="get" action="/add">
+		<h3>Add a New Task</h3>
+	    <h4><div class="form-group"><h4>
+	      <label for="name">Your Task Name:</label>
+	      <input type="text" class="form-control" id="name" placeholder="Task Name" name="name">
+	    </div>
+	    <h4><div class="form-group"><h4>
+	      <label for="description">Your Class Name:</label>
+	      <input type="text" class="form-control" id="description" placeholder="Class Description" name="description">
+	    </div>
+	    <h4><div class="form-group"><h4>
+	      <label for="name">Enter Your Time:</label>
+	      <input type="number" class="form-control" id="time" placeholder="Minutes" name="time">
+	    </div>
+	    <input type="submit" id="submitBtn" class="button button217" value="Add the new task"></input>
+	</form>
+
+</body>
+<script type="text/javascript" src="/js/stopwatch.js" onload = "stopwatch.update();"></script>
+</html>
