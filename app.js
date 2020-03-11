@@ -2,6 +2,8 @@
 /**
  * Module dependencies.
  */
+var data = require('./data.json');
+var math = require('mathjs');
 
 var express = require('express');
 var http = require('http');
@@ -47,7 +49,7 @@ app.set('view engine', 'handlebars');
 mongoose.connect(process.env.MONGODB_URI || keys.mongodb.dbURI,{ useNewUrlParser: true, useUnifiedTopology: true}, () => {
     console.log('connected to mongodb');
 });
-
+console.log(data['friends']);
 // If the below is uncommented, app will not run, due to fact that we need
 // express 4 for google login, and below is deprecated
 // app.use(express.favicon());
