@@ -22,7 +22,7 @@ $(document).ready(function(){
   });
 });
 </script>
-
+ {{> ga}}
 </head>
 
 <body>
@@ -38,6 +38,7 @@ $(document).ready(function(){
   <li><a2>{{#if user}}{{user.name}}'s {{/if}}Focus Home Page</a2></li>
 
 {{> navbar}}
+
 </ul>
 		<!-- <ol>
 		{{#each projects}}
